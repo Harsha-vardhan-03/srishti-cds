@@ -14,18 +14,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
     primary:
-        "bg-srishti-blue text-white hover:bg-srishti-blue-dark disabled:bg-srishti-blue/50",
+        "bg-[#0EA5E9] text-white hover:bg-[#0284C7] active:bg-[#0369A1] disabled:bg-[#0EA5E9]/60",
     secondary:
-        "bg-srishti-dark text-white hover:bg-srishti-dark/90 disabled:bg-srishti-dark/50",
+        "bg-srishti-dark text-white hover:bg-srishti-dark/90 active:bg-srishti-dark/80 disabled:bg-srishti-dark/60",
     ghost:
-        "bg-transparent text-srishti-dark hover:bg-srishti-dark/5",
+        "bg-transparent text-srishti-dark hover:bg-srishti-dark/5 active:bg-srishti-dark/10",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-    sm: "px-3 py-1.5 text-sm",
-    md: "px-4 py-2.5 text-base",
-    lg: "px-6 py-3 text-lg",
-};
+    sm: "px-3 py-1.5 text-[12px]",
+    md: "px-3.5 py-2 text-[13px]",
+    lg: "px-4 py-2.5 text-[14px]",
+  };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     (
@@ -42,7 +42,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref
     ) => {
         const baseStyles =
-            "inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-srishti-blue disabled:cursor-not-allowed";
+            "inline-flex items-center justify-center gap-2 rounded-md font-semibold transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0EA5E9] disabled:cursor-not-allowed";
 
         const classes = [
             baseStyles,
