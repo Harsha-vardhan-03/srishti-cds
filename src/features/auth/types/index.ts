@@ -6,8 +6,8 @@ export interface LoginPayload {
 }
 
 export interface AuthUserResponse {
-    userId: string;      // "SRI0461"
-    registerId: string;  // "472"
+    userId: string;      
+    registerId: string;  
     name: string;
     mobile: string;
     level: number;

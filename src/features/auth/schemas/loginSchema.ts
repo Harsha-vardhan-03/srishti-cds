@@ -1,17 +1,10 @@
 import { z } from "zod";
-
-// ============================================================
-// VALIDATION PATTERNS
-// ============================================================
-// User ID: "SRI" + exactly 4 digits (e.g., SRI0461) — case-insensitive
 const USER_ID_REGEX = /^SRI\d{4}$/i;
 
-// Mobile: exactly 10 digits (Indian mobile format)
+
 const MOBILE_REGEX = /^\d{10}$/;
 
-// ============================================================
-// SCHEMA
-// ============================================================
+
 export const loginSchema = z.object({
     userIdOrMobile: z
         .string()
@@ -32,15 +25,11 @@ export const loginSchema = z.object({
     rememberMe: z.boolean().default(false),
 });
 
-// ============================================================
-// INFERRED TYPES
-// ============================================================
+
 export type LoginPayloadInput = z.infer<typeof loginSchema>;
 export type LoginFormErrors = Partial<Record<keyof LoginPayloadInput, string>>;
 
-// ============================================================
-// VALIDATION HELPER
-// ============================================================
+
 export function validateLoginForm(data: LoginPayloadInput): LoginFormErrors {
     const result = loginSchema.safeParse(data);
     if (result.success) return {};

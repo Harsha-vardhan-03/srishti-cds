@@ -35,15 +35,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 : "password"
             : props.type;
 
-        // Base input styles
+        
         const baseInputStyles =
             "w-full rounded-md border bg-white px-3 py-2.5 text-[14px] text-gray-900 placeholder:text-gray-400 transition-all duration-150 focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500";
 
-        // Normal state
+        
         const normalStyles =
             "border-gray-300 hover:border-gray-400 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/15";
 
-        // Error state
+        
+            
         const errorStyles =
             "border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/15";
 
