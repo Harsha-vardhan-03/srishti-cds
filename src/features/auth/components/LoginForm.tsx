@@ -47,7 +47,7 @@ export function LoginForm() {
     return (
         <div className="min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-[#FFA726] via-[#FB8C00] to-[#F57C00] px-3 py-4 sm:px-4">
             <div className="w-full max-w-[380px] bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.25)] px-5 py-5 sm:px-7 sm:py-6">
-                {/* Logo — compact */}
+               
                 <div className="flex justify-center mb-3">
                     <div className="w-[70px] h-[70px] border-2 border-[#E55A1B] rounded-lg flex flex-col items-center justify-center bg-white">
                         <span className="text-[#E55A1B] font-extrabold text-[13px] tracking-wide leading-none mb-0.5">
@@ -63,12 +63,12 @@ export function LoginForm() {
                     </div>
                 </div>
 
-                {/* Subtitle */}
+                
                 <p className="text-center text-gray-500 text-[12px] mb-4">
                     Login to continue with Srishti CDS
                 </p>
 
-                {/* Error Alert */}
+                
                 {isError && error && (
                     <div
                         className="mb-3 px-3 py-2 bg-red-50 border border-red-200 rounded-md"
@@ -80,7 +80,7 @@ export function LoginForm() {
                     </div>
                 )}
 
-                {/* Form */}
+                
                 <form onSubmit={handleSubmit} className="space-y-3" noValidate>
                     <Input
                         label="User ID / Mobile Number"
@@ -105,7 +105,7 @@ export function LoginForm() {
                         disabled={isLoading}
                     />
 
-                    {/* Remember Me */}
+                    
                     <div className="flex items-center gap-2">
                         <input
                             type="checkbox"
@@ -134,7 +134,7 @@ export function LoginForm() {
                         </label>
                     </div>
 
-                    {/* Log In */}
+                    
                     <Button
                         type="submit"
                         variant="primary"
@@ -147,7 +147,7 @@ export function LoginForm() {
                     </Button>
                 </form>
 
-                {/* Download Brochure */}
+                
                 <button
                     type="button"
                     onClick={() => alert("Brochure download coming soon.")}
