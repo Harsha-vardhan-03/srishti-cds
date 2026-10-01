@@ -1,5 +1,5 @@
 export type PlacementType = "LEFT" | "MIDDLE" | "RIGHT";
-export type ReferralStatus = "A" | "I"; // A = Active, I = Inactive
+export type ReferralStatus = "A" | "I"; 
 
 export interface ReferralUser {
     id: number;

@@ -27,12 +27,12 @@ export function NetworkTreeView() {
 
     return (
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            {/* Header */}
+            
             <div className="bg-[#0f3d3e] px-4 py-3">
                 <h2 className="text-yellow-300 font-semibold text-base">Tree</h2>
             </div>
 
-            {/* Body */}
+            
             <div className="p-4 sm:p-6 overflow-x-auto">
                 {levelProgress && <LevelProgress progress={levelProgress} />}
 

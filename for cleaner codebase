@@ -1,0 +1,23 @@
+ src/app/dashboard/layout.tsx                       |  2 [31m--[m
+ src/app/dashboard/page.tsx                         |  3 [31m---[m
+ src/app/dashboard/referrals/page.tsx               |  3 [32m+[m[31m--[m
+ src/app/globals.css                                |  1 [31m-[m
+ src/features/auth/api/authApi.ts                   |  6 [32m++[m[31m---[m
+ src/features/auth/components/LoginForm.tsx         | 14 [32m+[m[31m---------[m
+ src/features/auth/hooks/useLogin.ts                |  1 [31m-[m
+ src/features/auth/schemas/loginSchema.ts           | 12 [32m+++[m[31m------[m
+ src/features/auth/types/index.ts                   |  4 [32m+[m[31m--[m
+ src/features/dashboard/api/dashboardApi.ts         |  6 [32m++[m[31m---[m
+ src/features/dashboard/types/index.ts              | 30 [32m+++++[m[31m-----------------[m
+ src/features/network-tree/api/networkTreeApi.ts    |  4 [32m+[m[31m--[m
+ .../network-tree/components/NetworkTreeView.tsx    |  4 [32m+[m[31m--[m
+ src/features/network-tree/components/TreeNode.tsx  |  9 [32m+++[m[31m----[m
+ src/features/network-tree/types/index.ts           | 10 [32m++++[m[31m----[m
+ src/features/referrals/api/referralsApi.ts         |  3 [31m---[m
+ .../referrals/components/ReferralTable.tsx         | 13 [32m++[m[31m--------[m
+ src/features/referrals/types/index.ts              |  2 [32m+[m[31m-[m
+ src/shared/components/layout/Sidebar.tsx           | 12 [32m++++[m[31m-----[m
+ src/shared/lib/axiosClient.ts                      |  7 [32m++[m[31m---[m
+ src/shared/lib/queryClient.ts                      |  8 [32m+++[m[31m---[m
+ src/shared/store/authStore.ts                      | 10 [32m++++[m[31m----[m
+ 22 files changed, 48 insertions(+), 116 deletions(-)

@@ -75,7 +75,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
     return (
         <>
-            {/* Backdrop (only on mobile/tablet) */}
+            
             {isOpen && (
                 <div
                     className="fixed inset-0 bg-black/50 z-40 lg:hidden"
@@ -84,12 +84,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 />
             )}
 
-            {/* Sidebar Drawer */}
+            
             <aside
                 className={`fixed top-0 left-0 h-screen w-64 bg-gradient-to-b from-[#1e3a8a] to-[#1e40af] text-white z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${isOpen ? "translate-x-0" : "-translate-x-full"
                     } lg:translate-x-0`}
             >
-                {/* Close button (mobile/tablet only) */}
+                
                 <div className="flex justify-end p-3 lg:hidden">
                     <button
                         onClick={onClose}
@@ -100,12 +100,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                     </button>
                 </div>
 
-                {/* Brand */}
+                
                 <div className="text-center py-5 border-b border-white/10 shrink-0">
                     <h2 className="text-lg font-semibold tracking-wider">SRISHTI</h2>
                 </div>
 
-                {/* Menu (scrollable) */}
+                
                 <nav className="flex-1 overflow-y-auto mt-3 flex flex-col gap-1 px-2 pb-3">
                     {menuItems.map((item) => {
                         const Icon = item.icon;
@@ -164,7 +164,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                     })}
                 </nav>
 
-                {/* Logout at bottom (shrink-0) */}
+                
                 <div className="shrink-0 p-2 border-t border-white/10">
                     <button
                         onClick={handleLogout}

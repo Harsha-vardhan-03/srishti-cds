@@ -25,7 +25,6 @@ export default function ReferralsPage() {
     return (
         <div className="max-w-6xl mx-auto">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                {/* Header */}
                 <div className="bg-[#0f3d3e] px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     <h2 className="text-yellow-300 font-semibold text-base sm:text-lg">
                         My Referral Users
@@ -35,7 +34,7 @@ export default function ReferralsPage() {
                     </div>
                 </div>
 
-                {/* Body */}
+
                 <div className="p-4 sm:p-6">
                     {isLoading && (
                         <div className="flex justify-center items-center h-40">

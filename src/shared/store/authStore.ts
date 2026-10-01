@@ -2,9 +2,9 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export interface AuthUser {
-    userId: string;      // e.g., "SR10339"
-    registerId: string;  // e.g., "472"
-    name: string;        // e.g., "Gogada Chinababu"
+    userId: string;      
+    registerId: string;  
+    name: string;        
     mobile: string;
     level: number;
 }
@@ -25,7 +25,7 @@ export const useAuthStore = create<AuthState>()(
             isAuthenticated: false,
 
             login: (user, token) => {
-                // Persist token for Axios interceptor
+               
                 if (typeof window !== "undefined") {
                     localStorage.setItem("srishti_token", token);
                 }
@@ -40,7 +40,7 @@ export const useAuthStore = create<AuthState>()(
             },
         }),
         {
-            name: "srishti-auth-storage", // Key in localStorage
+            name: "srishti-auth-storage", 
         }
     )
 );

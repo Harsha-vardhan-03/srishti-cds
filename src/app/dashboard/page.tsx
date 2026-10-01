@@ -29,7 +29,6 @@ export default function DashboardPage() {
 
     return (
         <div className="space-y-4 sm:space-y-6 max-w-5xl mx-auto">
-            {/* Welcome Card */}
             <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-4">
                     <div className="min-w-0">
@@ -43,7 +42,6 @@ export default function DashboardPage() {
                 </div>
             </div>
 
-            {/* Stats Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <StatCard
                     label="User Id"
@@ -59,7 +57,6 @@ export default function DashboardPage() {
                 />
             </div>
 
-            {/* Info Card */}
             <div className="bg-white rounded-lg shadow p-4 sm:p-6">
                 <h2 className="text-base sm:text-lg font-semibold text-srishti-dark mb-2">
                     Quick Start

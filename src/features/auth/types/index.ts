@@ -1,6 +1,4 @@
-// ============================================================
-// API CONTRACTS (not validated by Zod — these come from backend)
-// ============================================================
+
 export interface LoginPayload {
     userIdOrMobile: string;
     password: string;

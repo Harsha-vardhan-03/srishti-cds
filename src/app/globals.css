@@ -25,7 +25,6 @@ body {
     font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Visible focus states for accessibility (Handbook Section 9) */
 *:focus-visible {
     outline: 2px solid var(--color-srishti-blue);
     outline-offset: 2px;

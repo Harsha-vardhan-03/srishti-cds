@@ -3,19 +3,12 @@
 import { memo } from "react";
 import { ReferralUser, ReferralStatus } from "../types";
 
-// ============================================================
-// STATIC CONFIG (outside component — no re-creation on render)
-// ============================================================
-
-// Maps the backend status code to a human-readable label.
 const STATUS_LABELS: Record<ReferralStatus, string> = {
     A: "Active",
     I: "Inactive",
 };
 
-// ============================================================
-// TABLE COLUMNS (single source of truth for headers)
-// ============================================================
+
 
 interface Column {
     key: string;
@@ -35,9 +28,7 @@ const COLUMNS: Column[] = [
     { key: "status", label: "STATUS", align: "center" },
 ];
 
-// ============================================================
-// MAIN COMPONENT (memoized)
-// ============================================================
+
 
 interface ReferralTableProps {
     referrals: ReferralUser[];

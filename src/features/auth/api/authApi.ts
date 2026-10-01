@@ -1,12 +1,10 @@
 import { axiosClient } from "@/shared/lib/axiosClient";
 import { LoginPayload, LoginResponse } from "../types";
 
-// Dummy mode is enabled ONLY when the environment variable is set.
-// In production, set NEXT_PUBLIC_USE_DUMMY_AUTH=false (or omit it).
+
 const USE_DUMMY_DATA = process.env.NEXT_PUBLIC_USE_DUMMY_AUTH === "true";
 
-// ⚠️ These exist ONLY for local development.
-// In production, credentials are validated by the real backend.
+
 const DUMMY_USER = {
     userId: "SRI0461",
     registerId: "472",

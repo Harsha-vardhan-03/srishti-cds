@@ -1,15 +1,15 @@
 export interface TreeNodeData {
     id: string;
-    userId: string;       // e.g., "SRI5858"
-    name: string;         // e.g., "B.KIRANCHAND BABU"
-    level: number;        // 1, 2, 3...
+    userId: string;       
+    name: string;         
+    level: number;       
     placementType: "LEFT" | "MIDDLE" | "RIGHT" | "ROOT";
     children: TreeNodeData[];
 }
 
 export interface LevelProgress {
-    currentLevel: number;      // e.g., 2
-    progressPercent: number;   // e.g., 11.11
+    currentLevel: number;      
+    progressPercent: number;   
 }
 
 export interface NetworkTreeResponse {

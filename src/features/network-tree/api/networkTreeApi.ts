@@ -1,9 +1,7 @@
 import { axiosClient } from "@/shared/lib/axiosClient";
 import { TreeNodeData, LevelProgress, NetworkTreeResponse } from "../types";
 
-// ============================================================
-// DUMMY DATA — different names from screenshots (per your request)
-// ============================================================
+
 const USE_DUMMY_DATA = true;
 
 const DUMMY_LEVEL_PROGRESS: LevelProgress = {

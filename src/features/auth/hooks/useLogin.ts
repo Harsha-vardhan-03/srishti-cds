@@ -17,7 +17,6 @@ export function useLogin() {
             router.push("/dashboard");
         },
         onError: (error) => {
-            // Only log in development — never in production
             if (process.env.NODE_ENV === "development") {
                 console.error("[Login Error]", error.message);
             }

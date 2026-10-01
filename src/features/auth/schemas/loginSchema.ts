@@ -1,8 +1,6 @@
 import { z } from "zod";
 
-// ============================================================
-// SCHEMA DEFINITION (single source of truth)
-// ============================================================
+
 export const loginSchema = z.object({
     userIdOrMobile: z
         .string()
@@ -20,15 +18,11 @@ export const loginSchema = z.object({
     rememberMe: z.boolean().default(false),
 });
 
-// ============================================================
-// INFERRED TYPES (no more manual duplication)
-// ============================================================
+
 export type LoginPayloadInput = z.infer<typeof loginSchema>;
 export type LoginFormErrors = Partial<Record<keyof LoginPayloadInput, string>>;
 
-// ============================================================
-// VALIDATION HELPER
-// ============================================================
+
 export function validateLoginForm(data: LoginPayloadInput): LoginFormErrors {
     const result = loginSchema.safeParse(data);
 

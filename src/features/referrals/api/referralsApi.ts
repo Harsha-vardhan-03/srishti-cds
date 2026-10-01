@@ -1,9 +1,6 @@
 import { axiosClient } from "@/shared/lib/axiosClient";
 import { ReferralUser, ReferralsResponse } from "../types";
 
-// ============================================================
-// DUMMY DATA — Different names than screenshots (per your request)
-// ============================================================
 const USE_DUMMY_DATA = true;
 
 const DUMMY_REFERRALS: ReferralUser[] = [
