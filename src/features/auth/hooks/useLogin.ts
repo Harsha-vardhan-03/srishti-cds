@@ -17,9 +17,9 @@ export function useLogin() {
             router.push("/dashboard");
         },
         onError: (error) => {
-            if (process.env.NODE_ENV === "development") {
-                console.error("[Login Error]", error.message);
-            }
+            // if (process.env.NODE_ENV === "development") {
+            //     console.error("[Login Error]", error.message);
+            // }
         },
     });
 

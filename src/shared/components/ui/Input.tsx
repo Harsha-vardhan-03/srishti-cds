@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, InputHTMLAttributes, useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, AlertCircle } from "lucide-react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
@@ -35,15 +35,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 : "password"
             : props.type;
 
-        
+        // Base input styles
         const baseInputStyles =
             "w-full rounded-md border bg-white px-3 py-2.5 text-[14px] text-gray-900 placeholder:text-gray-400 transition-all duration-150 focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500";
 
-        
+        // Normal state
         const normalStyles =
             "border-gray-300 hover:border-gray-400 focus:border-[#0EA5E9] focus:ring-2 focus:ring-[#0EA5E9]/15";
 
-        
+        // Error state
         const errorStyles =
             "border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/15";
 
@@ -60,7 +60,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             <div className="w-full">
                 <label
                     htmlFor={inputId}
-                    className="block text-[15px] font-medium text-gray-800 mb-1.5"
+                    className="block text-[14px] font-medium text-gray-800 mb-1"
                 >
                     {label}
                 </label>
@@ -85,8 +85,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                             className="
                 absolute right-3 top-1/2 -translate-y-1/2
                 text-gray-400 hover:text-gray-700
-                rounded
-                p-0.5
+                rounded p-0.5
                 focus-visible:outline-2
                 focus-visible:outline-offset-2
                 focus-visible:outline-[#0EA5E9]
@@ -103,15 +102,23 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 {error && (
                     <p
                         id={errorId}
-                        className="mt-1.5 text-[13px] text-red-600 leading-snug"
+                        className="mt-1.5 text-[12px] text-red-600 leading-snug flex items-start gap-1"
                         role="alert"
                     >
-                        {error}
+                        <AlertCircle
+                            size={12}
+                            className="shrink-0 mt-0.5"
+                            aria-hidden="true"
+                        />
+                        <span>{error}</span>
                     </p>
                 )}
 
                 {!error && helperText && (
-                    <p id={helperId} className="mt-1.5 text-[13px] text-gray-500">
+                    <p
+                        id={helperId}
+                        className="mt-1.5 text-[12px] text-gray-500 leading-snug"
+                    >
                         {helperText}
                     </p>
                 )}
