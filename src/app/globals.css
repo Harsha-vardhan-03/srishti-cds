@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+    --color-srishti-orange: #f59e0b;
+    --color-srishti-orange-light: #fbbf24;
+    --color-srishti-blue: #0ea5e9;
+    --color-srishti-blue-dark: #0284c7;
+    --color-srishti-dark: #1e293b;
+    --color-srishti-gray: #64748b;
+}
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Visible focus states for accessibility (Handbook Section 9) */
+*:focus-visible {
+    outline: 2px solid var(--color-srishti-blue);
+    outline-offset: 2px;
+}
