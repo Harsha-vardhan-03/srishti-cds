@@ -93,7 +93,7 @@ export default function SupportPage() {
 
     return (
         <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6">
-            
+
             <div className="bg-gradient-to-br from-[#0f3d3e] to-[#1a5c5e] rounded-lg shadow-md overflow-hidden">
                 <div className="p-6 sm:p-8 text-white">
                     <div className="flex items-start gap-4">
@@ -105,7 +105,7 @@ export default function SupportPage() {
                                 Support Center
                             </h1>
                             <p className="text-white/85 text-sm mt-1">
-                                We're here to help. Reach out via any channel below.
+                               { "We're here to help. Reach out via any channel below." }
                             </p>
                             <div className="flex items-center gap-2 mt-3">
                                 <span className="inline-flex items-center gap-1.5 text-xs bg-green-500/20 text-green-200 px-2.5 py-1 rounded-full">
@@ -142,7 +142,7 @@ export default function SupportPage() {
                 })}
             </div>
 
-            
+
             {isSubmitted && (
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-start gap-3">
                     <CheckCircle2
@@ -167,7 +167,7 @@ export default function SupportPage() {
                 </div>
             )}
 
-            
+
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <button
                     type="button"

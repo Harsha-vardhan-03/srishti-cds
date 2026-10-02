@@ -7,8 +7,7 @@ import {
 } from "../types";
 
 const USE_DUMMY_DATA =
-    process.env.NEXT_PUBLIC_USE_DUMMY_AUTH === "true" &&
-    process.env.NODE_ENV === "development";
+    process.env.NEXT_PUBLIC_USE_DUMMY_AUTH === "true";
 
 
 const DUMMY_STATS: DashboardStats = {

@@ -2,7 +2,7 @@ import { axiosClient } from "@/shared/lib/axiosClient";
 import { TreeNodeData, LevelProgress, NetworkTreeResponse } from "../types";
 
 
-const USE_DUMMY_DATA = true;
+const USE_DUMMY_DATA = process.env.NEXT_PUBLIC_USE_DUMMY_AUTH === "true";
 
 const DUMMY_LEVEL_PROGRESS: LevelProgress = {
     currentLevel: 2,
