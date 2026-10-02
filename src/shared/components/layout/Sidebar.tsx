@@ -34,7 +34,7 @@ interface MenuItem {
     submenu?: SubMenuItem[];
 }
 
-const menuItems: MenuItem[] = [
+const MENU_ITEMS: MenuItem[] = [
     { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
     { label: "Network Tree", icon: Network, href: "/dashboard/network-tree" },
     { label: "My Referrals", icon: Users, href: "/dashboard/referrals" },
@@ -60,11 +60,13 @@ const menuItems: MenuItem[] = [
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
     const router = useRouter();
     const pathname = usePathname();
-    const logout = useAuthStore((state) => state.logout);
-    const [networkDetailsOpen, setNetworkDetailsOpen] = useState(false);
+    const clearAuth = useAuthStore((state) => state.clearAuth);
+    const [networkDetailsOpen, setNetworkDetailsOpen] = useState(
+        pathname.startsWith("/dashboard/network-details")
+    );
 
     const handleLogout = () => {
-        logout();
+        clearAuth();
         router.push("/login");
     };
 
@@ -73,9 +75,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         onClose();
     };
 
+    const isSubmenuActive = (submenu: SubMenuItem[]) =>
+        submenu.some((item) => pathname === item.href);
+
     return (
         <>
-            
             {isOpen && (
                 <div
                     className="fixed inset-0 bg-black/50 z-40 lg:hidden"
@@ -84,12 +88,16 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 />
             )}
 
-            
             <aside
-                className={`fixed top-0 left-0 h-screen w-64 bg-gradient-to-b from-[#1e3a8a] to-[#1e40af] text-white z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${isOpen ? "translate-x-0" : "-translate-x-full"
-                    } lg:translate-x-0`}
+                className={`
+          fixed top-0 left-0 h-screen w-64
+          bg-gradient-to-b from-[#1e3a8a] to-[#1e40af] text-white
+          z-50 transform transition-transform duration-300 ease-in-out
+          flex flex-col
+          ${isOpen ? "translate-x-0" : "-translate-x-full"}
+          lg:translate-x-0
+        `}
             >
-                
                 <div className="flex justify-end p-3 lg:hidden">
                     <button
                         onClick={onClose}
@@ -100,23 +108,27 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                     </button>
                 </div>
 
-                
                 <div className="text-center py-5 border-b border-white/10 shrink-0">
                     <h2 className="text-lg font-semibold tracking-wider">SRISHTI</h2>
                 </div>
 
-                
                 <nav className="flex-1 overflow-y-auto mt-3 flex flex-col gap-1 px-2 pb-3">
-                    {menuItems.map((item) => {
+                    {MENU_ITEMS.map((item) => {
                         const Icon = item.icon;
-                        const isActive = item.href ? pathname === item.href : false;
+                        const isActive = item.href
+                            ? pathname === item.href
+                            : isSubmenuActive(item.submenu || []);
 
                         if (item.submenu) {
                             return (
                                 <div key={item.label}>
                                     <button
                                         onClick={() => setNetworkDetailsOpen((prev) => !prev)}
-                                        className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-md text-sm hover:bg-white/10 transition-colors text-left"
+                                        className={`
+                      w-full flex items-center justify-between gap-3 px-4 py-3
+                      rounded-md text-sm transition-colors text-left
+                      ${isActive ? "bg-white/20 font-medium" : "hover:bg-white/10"}
+                    `}
                                     >
                                         <span className="flex items-center gap-3">
                                             <Icon size={18} />
@@ -135,10 +147,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                                                 <button
                                                     key={sub.label}
                                                     onClick={() => handleNavigate(sub.href)}
-                                                    className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm transition-colors text-left ${pathname === sub.href
-                                                            ? "bg-white/20 font-medium"
-                                                            : "hover:bg-white/10"
-                                                        }`}
+                                                    className={`
+                            flex items-center gap-2 px-4 py-2 rounded-md text-sm
+                            transition-colors text-left
+                            ${pathname === sub.href ? "bg-white/20 font-medium" : "hover:bg-white/10"}
+                          `}
                                                 >
                                                     <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
                                                     {sub.label}
@@ -154,8 +167,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                             <button
                                 key={item.label}
                                 onClick={() => item.href && handleNavigate(item.href)}
-                                className={`flex items-center gap-3 px-4 py-3 rounded-md text-sm transition-colors text-left ${isActive ? "bg-white/20 font-medium" : "hover:bg-white/10"
-                                    }`}
+                                className={`
+                  flex items-center gap-3 px-4 py-3 rounded-md text-sm
+                  transition-colors text-left
+                  ${isActive ? "bg-white/20 font-medium" : "hover:bg-white/10"}
+                `}
                             >
                                 <Icon size={18} />
                                 {item.label}
@@ -164,7 +180,6 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                     })}
                 </nav>
 
-                
                 <div className="shrink-0 p-2 border-t border-white/10">
                     <button
                         onClick={handleLogout}

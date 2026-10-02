@@ -11,15 +11,15 @@ interface StatCardProps {
     icon?: LucideIcon;
 }
 
-const colorStyles: Record<StatCardColor, string> = {
-    blue: "bg-gradient-to-br from-srishti-blue to-srishti-blue-dark",
-    purple: "bg-gradient-to-br from-purple-500 to-purple-700",
+const COLOR_STYLES: Record<StatCardColor, string> = {
+    blue: "bg-gradient-to-br from-[#0EA5E9] to-[#0284C7]",
+    purple: "bg-gradient-to-br from-[#A855F7] to-[#7E22CE]",
 };
 
 export function StatCard({ label, value, color, icon: Icon }: StatCardProps) {
     return (
         <div
-            className={`${colorStyles[color]} rounded-lg p-6 text-white shadow-lg relative overflow-hidden`}
+            className={`${COLOR_STYLES[color]} rounded-lg p-6 text-white shadow-lg`}
         >
             <div className="flex items-center justify-between">
                 <div className="flex flex-col items-center gap-2">

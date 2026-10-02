@@ -1,6 +1,6 @@
 "use client";
 
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { loginUser } from "../api/authApi";
 import { LoginPayload, LoginResponse, ApiError } from "../types";
@@ -8,18 +8,18 @@ import { useAuthStore } from "@/shared/store/authStore";
 
 export function useLogin() {
     const router = useRouter();
-    const loginToStore = useAuthStore((state) => state.login);
+    const queryClient = useQueryClient();
+    const setAuthenticatedUser = useAuthStore((s) => s.setAuthenticatedUser);
 
     const mutation = useMutation<LoginResponse, ApiError, LoginPayload>({
         mutationFn: loginUser,
         onSuccess: (data) => {
-            loginToStore(data.user, data.token);
-            router.push("/dashboard");
+            setAuthenticatedUser(data.user);
+            queryClient.clear();
+            router.replace("/dashboard");
         },
-        onError: (error) => {
-            // if (process.env.NODE_ENV === "development") {
-            //     console.error("[Login Error]", error.message);
-            // }
+        onError: () => {
+            
         },
     });
 

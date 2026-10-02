@@ -1,5 +1,5 @@
 export type PlacementType = "LEFT" | "MIDDLE" | "RIGHT";
-export type ReferralStatus = "A" | "I"; 
+export type ReferralStatus = "A" | "I";
 
 export interface ReferralUser {
     id: number;
@@ -19,4 +19,13 @@ export interface ReferralsResponse {
         referrals: ReferralUser[];
         total: number;
     };
+}
+
+
+export interface TeamMember {
+    id: number;
+    registerId: string;
+    userId: string;
+    userName: string;
+    status: ReferralStatus;
 }

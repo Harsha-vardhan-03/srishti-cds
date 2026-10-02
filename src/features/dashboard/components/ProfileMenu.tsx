@@ -9,7 +9,7 @@ export function ProfileMenu() {
     const [isOpen, setIsOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
     const router = useRouter();
-    const { user, logout } = useAuthStore();
+    const { user, clearAuth } = useAuthStore();
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -22,14 +22,26 @@ export function ProfileMenu() {
     }, []);
 
     const handleLogout = () => {
-        logout();
+        clearAuth();
         router.push("/login");
     };
 
     const menuItems = [
-        { label: "My Profile", icon: UserIcon, action: () => router.push("/dashboard/profile") },
-        { label: "My Referrals", icon: Users, action: () => router.push("/dashboard/referrals") },
-        { label: "Total Team", icon: Network, action: () => router.push("/dashboard/team") },
+        {
+            label: "My Profile",
+            icon: UserIcon,
+            action: () => router.push("/dashboard/profile"),
+        },
+        {
+            label: "My Referrals",
+            icon: Users,
+            action: () => router.push("/dashboard/referrals"),
+        },
+        {
+            label: "Total Team",
+            icon: Network,
+            action: () => router.push("/dashboard/team"),
+        },
         { label: "Log Out", icon: LogOut, action: handleLogout },
     ];
 
