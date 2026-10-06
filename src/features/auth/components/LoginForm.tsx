@@ -5,6 +5,7 @@ import { Download, AlertCircle } from "lucide-react";
 import { Input } from "@/shared/components/ui/Input";
 import { Button } from "@/shared/components/ui/Button";
 import { useLogin } from "../hooks/useLogin";
+import Link from "next/link";
 import {
     validateLoginForm,
     LoginFormErrors,
@@ -35,7 +36,7 @@ export function LoginForm() {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        
+
         setErrors({});
 
         const validationErrors = validateLoginForm(formData);
@@ -47,13 +48,13 @@ export function LoginForm() {
         login(formData);
     };
 
-    
+
     const hasFieldErrors = Object.values(errors).some(Boolean);
     const showApiError = isError && error && !hasFieldErrors;
 
     return (
         <div className="relative min-h-[100dvh] flex items-center justify-center px-3 py-4 sm:px-4 overflow-hidden bg-gradient-to-br from-[#FFB74D] via-[#FB8C00] to-[#E65100]">
-            
+
             <div
                 aria-hidden="true"
                 className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#FFCC80] opacity-40 blur-3xl"
@@ -67,9 +68,9 @@ export function LoginForm() {
                 className="absolute top-1/3 right-1/4 w-64 h-64 rounded-full bg-[#FFF3E0] opacity-20 blur-3xl"
             />
 
-            
+
             <div className="relative w-full max-w-[380px] bg-white/95 backdrop-blur-sm rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.35)] px-5 py-5 sm:px-7 sm:py-6">
-                
+
                 <div className="flex justify-center mb-3">
                     <div className="w-[70px] h-[70px] border-2 border-[#E55A1B] rounded-lg flex flex-col items-center justify-center bg-white shadow-sm">
                         <span className="text-[#E55A1B] font-extrabold text-[13px] tracking-wide leading-none mb-0.5">
@@ -129,7 +130,7 @@ export function LoginForm() {
                         disabled={isLoading}
                     />
 
-                    
+
                     <div className="flex items-center justify-between">
                         <label
                             htmlFor="rememberMe"
@@ -159,16 +160,15 @@ export function LoginForm() {
                             </span>
                         </label>
 
-                        <button
-                            type="button"
-                            onClick={() => alert("Password reset coming soon.")}
+                        <Link
+                            href="/forgot-password"
                             className="text-[13px] text-[#0EA5E9] font-medium hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0EA5E9] rounded"
                         >
-                            Forgot?
-                        </button>
+                            Forgot Password?
+                        </Link>
                     </div>
 
-                    
+
                     <Button
                         type="submit"
                         variant="primary"
@@ -181,7 +181,25 @@ export function LoginForm() {
                     </Button>
                 </form>
 
-               
+                <div className="flex items-center gap-3 mt-5">
+                    <div className="flex-1 h-px bg-gray-200" />
+                    <span className="text-[11px] text-gray-400 uppercase tracking-wider">
+                        or
+                    </span>
+                    <div className="flex-1 h-px bg-gray-200" />
+                </div>
+
+                <p className="text-center text-sm text-gray-600 mt-5">
+                    Don&apos;t have an account?{" "}
+                    <Link
+                        href="/register"
+                        className="text-[#0EA5E9] font-semibold hover:underline"
+                    >
+                        Sign up
+                    </Link>
+                </p>
+
+
                 <button
                     type="button"
                     onClick={() => alert("Brochure download coming soon.")}
